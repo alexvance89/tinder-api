@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Tinder.Api.Filters;
 using Tinder.Api.Infrastructure.Application.Interfaces;
 using Tinder.Api.Mappers.Interfaces;
 
@@ -18,10 +19,11 @@ namespace Tinder.Api.Controllers
             _discoveriesApplication = discoveriesApplication;
             _discoveryMapper = discoveryMapper;
         }
-        
+
         /// <summary>
         /// Gets the discovered users for the currently authenticated user.
         /// </summary>
+        [DeflateCompression]
         public async Task<IHttpActionResult> Get()
         {
             IHttpActionResult result;

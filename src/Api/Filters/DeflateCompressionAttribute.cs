@@ -1,8 +1,6 @@
 ﻿using System.IO;
 using System.Net.Http;
 using System.Web.Http.Filters;
-using System.Web.UI.WebControls;
-using System.Web.WebSockets;
 using Ionic.Zlib;
 
 namespace Tinder.Api.Filters
@@ -16,7 +14,6 @@ namespace Tinder.Api.Filters
             var compressedContent = Deflate(bytes);
 
             actionExecutedContext.Response.Content = new ByteArrayContent(compressedContent);
-            actionExecutedContext.Response.Headers.Remove("Content-Type");
             actionExecutedContext.Response.Content.Headers.Add("Content-encoding", "deflate");
             actionExecutedContext.Response.Content.Headers.Add("Content-Type", "application/json");
 

@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Tinder.Api.Contracts;
+using Tinder.Api.Filters;
 using Tinder.Api.Infrastructure.Application.Interfaces;
 using Tinder.Api.Mappers.Interfaces;
 
@@ -18,10 +19,12 @@ namespace Tinder.Api.Controllers
             _discoverySettingsApplication = discoverySettingsApplication;
             _discoverySettingsMapper = discoverySettingsMapper;
         }
-        
+
         /// <summary>
         /// Serves up the discoverySettings view for the current authenticated user.
         /// </summary>
+        [DeflateCompression]
+
         public async Task<IHttpActionResult> Get()
         {
             IHttpActionResult result;

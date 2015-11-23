@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Tinder.Api.Filters;
 using Tinder.Api.Infrastructure.Application.Interfaces;
 using Tinder.Api.Mappers.Interfaces;
 
@@ -18,6 +19,7 @@ namespace Tinder.Api.Controllers
         }
 
         [Route("api/users/{userId}")]
+        [DeflateCompression]
         public async Task<IHttpActionResult> Get(long userId)
         {
             IHttpActionResult result;

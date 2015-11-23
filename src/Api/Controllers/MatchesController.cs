@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Tinder.Api.Filters;
 using Tinder.Api.Infrastructure.Application.Interfaces;
 using Tinder.Api.Mappers.Interfaces;
 
@@ -21,7 +22,8 @@ namespace Tinder.Api.Controllers
         /// <summary>
         /// Serves up the ui for the matched users of the currently authenticated user.
         /// </summary>
-        /// <returns></returns>
+        [DeflateCompression]
+
         public async Task<IHttpActionResult> Get()
         {
             IHttpActionResult result;
